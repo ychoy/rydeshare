@@ -1,0 +1,12 @@
+<%= form_for @trip do |f| %>
+  <fieldset>
+    <%= f.label :departure_address, 'Address' %>
+    <%= f.text_field :departure_address %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :total_seats, 'Total Seats' %>
+    <%= f.text_field :total_seats %>
+  </fieldset>
+
+  <%= f.submit 'Add Carpool'%>
+<% end %>
