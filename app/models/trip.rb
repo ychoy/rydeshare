@@ -3,6 +3,6 @@ class Trip < ApplicationRecord
   has_many :users, through: :memberships
 
   validates :departure_address, presence: true
-  geocoded_by :address
-  after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }
+  geocoded_by :departure_address
+  after_validation :geocode, if: ->(obj){ obj.departure_address.present? and obj.departure_address_changed? }
 end
