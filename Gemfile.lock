@@ -175,8 +175,8 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   devise-encryptable
-  figaro
-  geocoder
+  figaro (~> 1.1.1)
+  geocoder (~> 1.4.3)
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
