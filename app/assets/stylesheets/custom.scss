@@ -1,0 +1,53 @@
+@import "semantic-ui";
+@import "font-awesome";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans%7CRoboto');
+@import url('https://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps:400,700');
+
+/*** Variables ***/
+/* colors */
+$purple: #800080;
+$blue: #008080;
+
+$bone: #ffffff;
+$coal: #2f3131;
+/* fonts */
+$logo-font: 'Oleo Script Swash Caps', cursive;
+$heading-font: 'Open sans', sans-serif;
+$body-font: 'Roboto', sans-serif;
+
+
+body {
+	font-family: $body-font;
+	color: $coal;
+}
+
+.main {
+	min-height: 100vh;
+}
+
+a {
+	color: inherit;
+}
+
+.logo {
+	color: $purple;
+	font-family: $logo-font;
+}
+
+a.logo:hover {
+  color: $coal;
+}
+
+/*** Typography ****/
+h1, h2, h3, h4, h5, h6 {
+	font-family: $heading-font;
+}
+
+header{
+	display: flex;
+  align-items: center;
+	background: $blue;
+	height: 90px;
+	margin-bottom: 20px;
+}
+
