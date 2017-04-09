@@ -11,6 +11,23 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
+//= require semantic-ui
 //= require_tree .
+
+$(document).ready(function(){
+	$('.ui.dropdown')
+  .dropdown();
+
+  $('.ui.accordion')
+  .accordion();
+
+  $('.message .close')
+  .on('click', function() {
+    $(this)
+      .closest('.message')
+      .transition('fade')
+    ;
+  });
+});
