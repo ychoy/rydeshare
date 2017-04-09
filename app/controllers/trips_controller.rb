@@ -2,10 +2,7 @@ class TripsController < ApplicationController
 	before_action :set_trip, only: [:show, :edit, :update, :destroy]
   def index
     @trips =  Trip.all
-    #url = 'https://maps.googleapis.com/maps/api/js?key='
-    #key = ENV['GOOGLE_MAPS']
-    #@endpoint = url + key
-
+    @key = ENV['GOOGLE_MAPS']
   end
 
   def show
@@ -54,7 +51,7 @@ class TripsController < ApplicationController
   end
 
 	def trip_params
-    params.require(:trip).permit(:id, :departure_address, :departure_latitude, :departure_longitude, :total_seats, :open_seats, :full?)
+    params.require(:trip).permit(:id, :address, :latitude, :longitude, :total_seats, :open_seats, :full?)
   end
 
 end
