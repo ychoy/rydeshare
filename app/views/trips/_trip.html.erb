@@ -2,4 +2,5 @@
 	<%= link_to trip.address, trip_path(trip) %>
   <strong>Coordinates: <%= trip.latitude %>, <%= trip.longitude %></strong>
   | <strong><%= trip.total_seats %></strong> Total Seats
+  | <%= link_to "Edit", edit_trip_path(trip) %>
 </li>
