@@ -1,7 +1,7 @@
 <%= form_for @trip do |f| %>
   <fieldset>
-    <%= f.label :departure_address, 'Address' %>
-    <%= f.text_field :departure_address %>
+    <%= f.label :address, 'Address' %>
+    <%= f.text_field :address %>
   </fieldset>
   <fieldset>
     <%= f.label :total_seats, 'Total Seats' %>
@@ -10,3 +10,9 @@
 
   <%= f.submit 'Add Carpool'%>
 <% end %>
+
+<div>
+  <div>
+  	<div id="map"></div>
+	</div>
+</div>
