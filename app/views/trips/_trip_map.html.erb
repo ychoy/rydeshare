@@ -1,19 +1,8 @@
-<h3> Trips Dashboard </h3>
-
-<style type="text/css">
-	#map {
-		height: 500px;
-		width: 100%;
-	}
-
-	.container {
-		width: 100%;
-	}
-
-</style>
-
-<div class="container">
-	<div id='map'>
+<div class="ui container">
+	<div class="twelve wide column">
+		<h3> Trips Dashboard </h3>
+		<div id="map">
+		</div>
 	</div>
 </div>
 
@@ -28,5 +17,4 @@
   <% @trips.each do |trip| %>
     map.addMarker({lat: <%= trip.latitude %>, lng: <%= trip.longitude %>});
   <% end %>
-
 </script>
