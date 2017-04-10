@@ -30,4 +30,10 @@ $(document).ready(function(){
       .transition('fade')
     ;
   });
+
+	$('.ui.modal')
+	.modal({
+		blurring:true
+	})
+  .modal('show');
 });
