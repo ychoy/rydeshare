@@ -1,18 +1,26 @@
-<%= form_for @trip do |f| %>
-  <fieldset>
-    <%= f.label :address, 'Address' %>
-    <%= f.text_field :address %>
-  </fieldset>
-  <fieldset>
-    <%= f.label :total_seats, 'Total Seats' %>
-    <%= f.text_field :total_seats %>
-  </fieldset>
+<div class="ui modal">
+  <i class="close icon"></i>
+  <div class="header">
+    Carpool Trip
+  </div>
+  <div class="content">
+    <div class="ui form">
+      <%= form_for @trip do |f| %>
+      <div class="required field">
+        <%= f.label :address, 'Address' %><br />
+        <%= f.text_field :address, autofocus: true %>
+      </div>
+      <div class="required field">
+        <%= f.label :total_seats, 'Total Seats' %><br />
+        <%= f.text_field :total_seats, autofocus: true %>
+      </div>
 
-  <%= f.submit 'Add Carpool'%>
-<% end %>
-
-<div>
-  <div>
-  	<div id="map"></div>
-	</div>
+      <div class="actions">
+        <div class="ui button">
+          <%= f.submit 'Submit' %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>
