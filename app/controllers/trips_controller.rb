@@ -1,4 +1,5 @@
 class TripsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
 	before_action :set_trip, only: [:show, :edit, :update, :destroy]
 	before_action :admin_user, only: [:edit, :update, :destroy]
 
@@ -16,14 +17,17 @@ class TripsController < ApplicationController
 	end
 
 	def create
-  	@trip = Trip.new(trip_params)
-    if @trip.save
-      flash[:success] = "Carpool added!"
-      redirect_to root_path
-    else
-			flash[:error] = @trip.errors.full_messages.join(", ")
-      render 'new'
-    end
+		if current_user.driver? == true
+			@trip = Trip.create(trip_params)
+			@trip.admin_id = current_user.id 
+		  if @trip.save
+				flash[:success] = "Carpool added!"
+	      redirect_to root_path
+			end
+		else
+				flash[:error] = @trip.errors.full_messages.join(", ")
+	      render 'new'
+	  end
   end
 
   def edit
@@ -53,7 +57,7 @@ class TripsController < ApplicationController
   end
 
 	def trip_params
-    params.require(:trip).permit(:id, :address, :latitude, :longitude, :total_seats, :open_seats, :full?)
+    params.require(:trip).permit(:id, :address, :latitude, :longitude, :total_seats, :open_seats, :full?, :admin_id)
   end
 
 	def admin_user
@@ -64,5 +68,4 @@ class TripsController < ApplicationController
 			redirect_to trip_path(@trip)
 		end
 	end
-
 end
