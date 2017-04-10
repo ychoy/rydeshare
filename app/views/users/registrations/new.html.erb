@@ -19,6 +19,16 @@
         <%= f.email_field :email, autofocus: true %>
       </div>
 
+      <div class="inline fields">
+        <label>Sign up as a driver or a rider</label>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" name="frequency" checked="checked">
+            <%= f.input :categories, :as => :check_boxes, :collection => [:driver?, :rider?] %>
+          </div>
+        </div>
+      </div>
+
       <div class="required field">
         <%= f.label :password %>
         <% if @minimum_password_length %>
