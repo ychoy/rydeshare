@@ -1,0 +1,32 @@
+<h3> Trips Dashboard </h3>
+
+<style type="text/css">
+	#map {
+		height: 500px;
+		width: 100%;
+	}
+
+	.container {
+		width: 100%;
+	}
+
+</style>
+
+<div class="container">
+	<div id='map'>
+	</div>
+</div>
+
+<script type="text/javascript">
+    var map = new GMaps({
+      el: '#map',
+      lat: 37.5431768,
+			lng: -122.2981118,
+			zoom: 9
+    });
+
+  <% @trips.each do |trip| %>
+    map.addMarker({lat: <%= trip.latitude %>, lng: <%= trip.longitude %>});
+  <% end %>
+
+</script>
