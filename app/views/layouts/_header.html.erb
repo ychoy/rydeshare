@@ -8,11 +8,9 @@
       <nav class="twelve wide column">
         <div class="ui secondary menu">
           <% if user_signed_in? %>
-            <%= link_to 'Add New Carpool', new_trip_path, class: "item" %>
 
             <div class="ui right dropdown item">
               <%= current_user.first_name %>
-              <%= fa_icon "user-circle-o" %>
               <i class="dropdown icon"></i>
               <div class="menu">
                 <div class="item">
