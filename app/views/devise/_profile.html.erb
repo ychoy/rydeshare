@@ -1,0 +1,19 @@
+<div class="ui two column grid horizontal segments">
+  <div class="ui segment column">
+    <h2 class="profile-name"><%= @user.first_name %> <%= @user.last_name %></h2>
+    <br>
+
+    <h2><%= fa_icon "user-circle-o" %> About</h2>
+
+    <% if @user == current_user %>
+      <%= fa_icon "pencil" %> <%= link_to 'Edit Profile', edit_user_registration_path %>
+    <% else %><% end %>
+
+    <h2><%= fa_icon "envelope" %> Contact</h2>
+    <p>Email: <%= @user.email %></p>
+    <% unless @user.phone_number.nil? %>
+      <p>Phone Number: <%= @user.phone_number %></p>
+    <% end %>
+
+  </div>
+</div>
