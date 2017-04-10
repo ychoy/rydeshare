@@ -18,7 +18,7 @@ class Trip < ApplicationRecord
   end
 
   def admin?(user)
-    return true if self.admin == user.id
+    return true if self.admin_id == user.id
   end
 
 end
