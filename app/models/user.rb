@@ -9,6 +9,9 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true, length: { in: 1..50}
   validates :last_name, presence: true, length: { in: 1..50}
+  validates :email, uniqueness: true
+  validates_inclusion_of :driver?, :in => [true, false]
+  validates_inclusion_of :rider?, :in => [true, false]
 
   def member?(trip)
     trip.users.include?(self)
