@@ -30,10 +30,12 @@ $(document).ready(function(){
       .transition('fade')
     ;
   });
-
-	$('.ui.modal')
-	.modal({
-		blurring:true
-	})
-  .modal('show');
+$('.trip_modal')
+	.on('click', function() {
+		$('.ui.modal')
+	  .modal({
+	    blurring: true
+	  })
+		.modal('show');
+	});
 });
