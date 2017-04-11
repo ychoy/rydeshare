@@ -5,6 +5,7 @@ class TripsController < ApplicationController
 
 	def index
     @trips =  Trip.all
+    @trip = Trip.new() #setting empty trips hash 
     @key = ENV['GOOGLE_MAPS']
   end
 
@@ -14,19 +15,24 @@ class TripsController < ApplicationController
 
 	def new
     @trip = Trip.new
+
 	end
 
 	def create
 		if current_user.driver? == true
 			@trip = Trip.create(trip_params)
-			@trip.admin_id = current_user.id 
+			@trip.admin_id = current_user.id
+
 		  if @trip.save
 				flash[:success] = "Carpool added!"
 	      redirect_to root_path
-			end
+      else
+          flash[:error] = @trip.errors.full_messages.join(", ")
+          render 'new'
+      end
 		else
 				flash[:error] = @trip.errors.full_messages.join(", ")
-	      render 'new'
+	      redirect_to root_path
 	  end
   end
 
