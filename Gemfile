@@ -25,7 +25,7 @@ gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
 #font awesome
 gem 'font-awesome-rails'
 #simple form for styling forms
-gem 'simple_form'
+#gem 'simple_form'
 #Use jquery as JS library
 gem 'jquery-turbolinks'
 
