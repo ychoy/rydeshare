@@ -1,4 +1,4 @@
-require 'geocoder'
+# require 'geocoder'
 
 class Trip < ApplicationRecord
   has_many :memberships, dependent: :destroy
@@ -19,7 +19,7 @@ class Trip < ApplicationRecord
   end
 
   def admin?(user)
-    return true if self.user_id == user.id
+    self.user_id == user.id
   end
 
 end
