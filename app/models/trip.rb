@@ -6,6 +6,7 @@ class Trip < ApplicationRecord
   belongs_to :user
 
   validates :address, presence: true
+  validates :destination_address, presence: true 
   validates :total_seats, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1}
   geocoded_by :address
   after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }
