@@ -2,21 +2,19 @@ class TripsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 	before_action :set_trip, only: [:show, :edit, :update, :destroy]
 	before_action :admin_user, only: [:edit, :update, :destroy]
+  before_action :find_all, except: [:destroy]
 
 	def index
-    @trips =  Trip.all
     @trip = Trip.new() #setting empty trips hash
     @key = ENV['GOOGLE_MAPS']
 
   end
 
   def show
-		@trips = Trip.all
   end
 
 	def new
     @trip = Trip.new(user_id: params[:user_id])
-    @trips = Trip.all
 	end
 
 	def create
@@ -35,7 +33,7 @@ class TripsController < ApplicationController
   def edit
     @trip = Trip.find(params[:id])
     @trips = Trip.all
-    
+
   end
 
   def update
@@ -57,6 +55,10 @@ class TripsController < ApplicationController
 
 	def set_trip
     @trip = Trip.find_by_id(params[:id])
+  end
+
+  def find_all
+    @trips = Trip.all
   end
 
 	def trip_params
