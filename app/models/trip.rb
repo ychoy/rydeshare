@@ -3,6 +3,7 @@ require 'geocoder'
 class Trip < ApplicationRecord
   has_many :memberships, dependent: :destroy
   has_many :users, through: :memberships
+  belongs_to :user
 
   validates :address, presence: true
   validates :total_seats, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1}
@@ -18,7 +19,7 @@ class Trip < ApplicationRecord
   end
 
   def admin?(user)
-    return true if self.admin_id == user.id
+    return true if self.user_id == user.id
   end
 
 end
