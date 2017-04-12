@@ -8,6 +8,7 @@
 </div>
 
 <script type="text/javascript">
+
     var map = new GMaps({
       el: '#map',
       lat: 37.5431768,
@@ -16,6 +17,39 @@
     });
 
   <% @trips.each do |trip| %>
-    map.addMarker({lat: <%= trip.latitude %>, lng: <%= trip.longitude %>});
+    map.addMarker({
+			lat: <%= trip.latitude %>,
+			lng: <%= trip.longitude %>,
+			infoWindow: {
+  		content: `
+			<strong>Departure:</strong> <%=trip.address%> <p>
+			<strong>Destination:</strong> <%= trip.destination_address %><p>
+			<strong>Driver: </strong>
+			<%= User.where(id:trip.user_id).first.first_name %> <%= User.where(id:trip.user_id).first.last_name %>
+			<% if !trip.admin?(current_user) && current_user.member?(trip) %>
+				<div class="ui left icon button">
+					<%= link_to membership_destroy_path(trip.id), method: 'delete' do %>
+						<i class="remove user icon"></i>
+					<% end %>
+				</div>
+			<% elsif !trip.admin?(current_user) && !current_user.member?(trip) %>
+				<div class="ui left icon button">
+					<%= link_to memberships_user_path(trip.id), method: 'post' do %>
+						<i class="add user icon"></i>
+					<% end %>
+				</div>
+			<% elsif trip.admin?(current_user) %>
+				<div class="ui left icon button">
+					<%= link_to edit_trip_path(trip) do %>
+						<%= fa_icon "pencil" %>
+					<% end %>
+				</div>
+			<% end %>
+			`
+
+			// <strong>Departure: </strong><%= link_to trip.address, trip_path(trip) %>
+			// <br>
+			}
+		});
   <% end %>
 </script>
