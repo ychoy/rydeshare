@@ -1,6 +1,13 @@
-<!-- <li>
-	<%= link_to trip.address, trip_path(trip) %>
-  <strong>Coordinates: <%= trip.latitude %>, <%= trip.longitude %></strong>
-  | <strong><%= trip.total_seats %></strong> Total Seats
-  | <%= link_to "Edit", edit_trip_path(trip) %>
-</li> -->
+<div class="chat twelve wide column">
+  <div class="ui raised segment">
+    <h3>
+      Carpool Details
+    </h3>
+    <div class="ui divider"></div>
+    <div class="content">
+      <p>Driver: <%= User.where(id:@trip.user_id).first.first_name %> <%= User.where(id:@trip.user_id).first.last_name %> </p>
+      <p>Address: <%= @trip.address %></p>
+      <p>Coordinates: <%= @trip.latitude %>, <%= @trip.longitude %></p>
+    </div>
+  </div>
+</div>
