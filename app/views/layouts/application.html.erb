@@ -13,7 +13,7 @@
   <body>
     <%= render 'layouts/header' %>
 
-    <!-- <div class="main ui container"> -->
+    <div class="ui basic segment">
       <% flash.each do |name, msg| %>
         <div class="ui <%= name == 'error' ? 'negative' : 'info' %> message">
           <i class="close icon"></i>
@@ -21,7 +21,7 @@
         </div>
       <% end %>
       <%= yield %>
-    <!-- </div> -->
+    </div>
 
   </body>
 </html>
