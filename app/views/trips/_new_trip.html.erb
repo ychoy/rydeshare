@@ -10,8 +10,12 @@
     <div class="ui form">
       <%= form_for :trip, url: '/trips', method: :post do |f| %>
         <div class="required field">
-          <%= f.label :address, 'Address' %><br />
+          <%= f.label :address, 'Departure' %><br />
           <%= f.text_field :address, autofocus: true %>
+        </div>
+        <div class="required field">
+          <%= f.label :destination_address, 'Destination' %><br />
+          <%= f.text_field :destination_address, autofocus: true %>
         </div>
         <div class="required field">
           <%= f.label :total_seats, 'Total Seats' %><br />
