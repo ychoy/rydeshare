@@ -8,8 +8,14 @@ class MembershipsController < ApplicationController
   end
 
   def create
-    @trip.users.push(current_user) unless @trip.member?(current_user)
-    redirect_to root_path
+
+    if !@trip.member?(current_user) && @trip.users.count < @trip.total_seats
+      @trip.users.push(current_user)
+      redirect_to root_path
+    elsif @trip.users.count >= @trip.total_seats
+      flash[:error] = "This rydeshare is full. Join another rydeshare."
+      redirect_to root_path
+    end
   end
 
   def destroy
