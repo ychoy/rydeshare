@@ -8,6 +8,11 @@ class TripsController < ApplicationController
     @trip = Trip.new() #setting empty trips hash
     @key = ENV['GOOGLE_MAPS']
 
+    if params[:search].present?
+      @trips = Trip.near(params[:search], 10)
+    else
+      @trips = Trip.all
+    end
   end
 
   def show
