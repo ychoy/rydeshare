@@ -4,44 +4,14 @@
   </div>
   <div class="ui basic segment">
     <% @trips.each do |trip| %>
+      <% if !trip.admin?(current_user) && !current_user.member?(trip) %>
+        <div class="ui left icon button">
+          <%= link_to memberships_user_path(trip.id), method: 'post' do %>
+          Join  <i class="add user icon"></i>
+          <% end %>
+        </div>
+      <% end %>
       <br>
-       <% unless trip.admin?(current_user) %>
-
-        <% if current_user.member?(trip) %>
-          #your trips
-          #leave
-        <% else %>
-          #other trips
-          #join
-          <strong>Address: </strong><%= link_to trip.address, trip_path(trip) %>
-          | <strong>Driver: </strong><%= User.where(id:trip.user_id).first.first_name %>
-          <%= User.where(id:trip.user_id).first.last_name %>
-          | <strong><%= trip.total_seats %></strong> Seats
-          |
-          <div class="ui left pointing dropdown icon button">
-            <% if current_user.member?(trip) %>
-              <!-- TODO: Or Link_to? -- >
-              <strong>Address: </strong><%= link_to trip.address, trip_path(trip) %>
-              | <strong>Driver: </strong><%= User.where(id:trip.user_id).first.first_name %>
-              <%= User.where(id:trip.user_id).first.last_name %>
-              | <strong><%= trip.total_seats %></strong> Seats
-              |
-              <%= button_to "Leave", @membership, method: :delete do %>
-                <i class="remove user icon"></i>
-              <% end %>
-            <% else %>
-
-						<%= link_to memberships_user_path(trip.id), method: 'post' do %>
-							Join
-              <i class="add user icon"></i>
-            <% end %>
-
-            <% end %>
-          </div>
-        <br>
-        <% end %>
-
-       <% end %>
     <% end %>
   </div>
 </div>
