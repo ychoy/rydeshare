@@ -1,13 +1,11 @@
 User.destroy_all
-Trip.destroy_all 
+Trip.destroy_all
 users = [
 	{
 		first_name: "Faustino",
 		last_name: "Jimenez",
 		email: "f@j.com",
 		password: "123456",
-    driver?: true,
-    rider?: false,
     phone_number: "(415)455-7890"
 	},
   {
@@ -15,8 +13,6 @@ users = [
     last_name: "Hussain",
     email: "f@h.com",
     password: "123456",
-    driver?: true,
-    rider?: false,
     phone_number: "(408)455-7892"
   },
   {
@@ -24,8 +20,6 @@ users = [
     last_name: "Books",
     email: "v@b.com",
     password: "123456",
-    driver?: true,
-    rider?: false,
     phone_number: "(510)455-7893"
   },
   {
@@ -33,8 +27,6 @@ users = [
     last_name: "Lau",
     email: "c@l.com",
     password: "123456",
-    driver?: false,
-    rider?: true,
     phone_number: "(408)898-7890"
   },
   {
@@ -42,8 +34,6 @@ users = [
     last_name: "Figuero",
     email: "z@f.com",
     password: "123456",
-    driver?: false,
-    rider?: true,
     phone_number: "(408)378-7890"
   },
   {
@@ -51,8 +41,6 @@ users = [
     last_name: "De Leon",
     email: "m@d.com",
     password: "123456",
-    driver?: false,
-    rider?: true,
     phone_number: "(510)886-7890"
   },
   {
@@ -60,8 +48,6 @@ users = [
     last_name: "Haq",
     email: "z@h.com",
     password: "123456",
-    driver?: false,
-    rider?: true,
     phone_number: "(408)988-7890"
   },
   {
@@ -69,8 +55,6 @@ users = [
     last_name: "Mathers",
     email: "k@m.com",
     password: "123456",
-    driver?: false,
-    rider?: true,
     phone_number: "(510)688-7890"
   },
 ]
