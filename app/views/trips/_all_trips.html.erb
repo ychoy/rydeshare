@@ -5,8 +5,9 @@
   <div class="ui basic segment">
     <% @trips.each do |trip| %>
       <% if !trip.admin?(current_user) && !current_user.member?(trip) %>
-      <strong>Address: </strong><%= link_to trip.address, trip_path(trip) %>
-      <br> <strong>Driver: </strong><%= User.where(id:trip.user_id).first.first_name %>
+
+      <strong>Departure: </strong><%= link_to trip.address, trip_path(trip) %>
+      | <strong> Destination: </strong><%= trip.destination_address %> | <strong>Driver: </strong><%= User.where(id:trip.user_id).first.first_name %>
       <%= User.where(id:trip.user_id).first.last_name %>
         <div class="ui left icon button">
           <%= link_to memberships_user_path(trip.id), method: 'post' do %>
