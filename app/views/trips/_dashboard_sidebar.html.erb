@@ -2,6 +2,22 @@
   <div class="ui basic segment">
     <div class="four wide column">
       <br>
+      <div class="ui basic segment">
+    	<h3 class="ui header"> Find A Rydeshare
+    	</h3>
+      <div class="ui form">
+    	<%= form_tag trips_path, :method => :get do %>
+      	<p>
+        <div class="field">
+          <%= text_field_tag :search, params[:search], placeholder: "Enter a city or full address" %>
+        </div>
+
+        <div class="actions">
+          <%= submit_tag "Search Nearby Departures", :name => nil, class: "ui positive button"  %>
+        </div>
+    	<% end %>
+      </div>
+    	</div>
       <div>
         <%= render 'your_trips' %>
       </div>
