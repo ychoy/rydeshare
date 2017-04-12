@@ -1,0 +1,17 @@
+<div class="ui container">
+  <div class="header">
+    All Carpools:
+  </div>
+  <div class="content">
+    <% @trips.each do |trip| %>
+      <ul>
+        <li>
+        <strong>Address: </strong><%= link_to trip.address, trip_path(trip) %>
+        | <strong>Driver: </strong><%= User.where(id:trip.user_id).first.first_name %> <%= User.where(id:trip.user_id).first.last_name %>
+        | <strong><%= trip.total_seats %></strong> Seats
+        | <%= link_to "Edit", edit_trip_path(trip) %>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+</div>
