@@ -23,7 +23,6 @@
 			infoWindow: {
   		content: `
 			<strong>Departure:</strong> <%=trip.address%> <p>
-			<strong>Destination:</strong> <%= trip.destination_address %><p>
 			<strong>Driver: </strong>
 			<%= User.where(id:trip.user_id).first.first_name %> <%= User.where(id:trip.user_id).first.last_name %>
 			<% if !trip.admin?(current_user) && current_user.member?(trip) %>
