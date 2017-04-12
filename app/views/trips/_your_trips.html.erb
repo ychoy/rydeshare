@@ -16,11 +16,12 @@
       <br>
     <% else %>
       <strong>Address: </strong><%= link_to trip.address, trip_path(trip) %>
-      | <strong>Driver: </strong><%= User.where(id:trip.user_id).first.first_name %>
+      <br>
+      <strong>Driver: </strong><%= User.where(id:trip.user_id).first.first_name %>
       <%= User.where(id:trip.user_id).first.last_name %>
       <div class="ui left icon button">
         <%= link_to membership_destroy_path(trip.id), method: 'delete' do %>
-          Leave  <i class="remove user icon"></i>
+          <i class="remove user icon"></i>
         <% end %>
       </div>
     <% end %>
