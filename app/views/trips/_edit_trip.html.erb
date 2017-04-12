@@ -1,0 +1,28 @@
+<div class="ui container">
+  <div class="header">
+    <h3 class="nav-title">
+      Update Carpool Trip
+    </h3>
+  </div>
+  <br>
+  <div class="content">
+    <div class="ui form">
+      <%= form_for @trip do |f| %>
+        <div class="required field">
+          <%= f.label :address, 'Address' %><br />
+          <%= f.text_field :address, autofocus: true %>
+        </div>
+        <div class="required field">
+          <%= f.label :total_seats, 'Total Seats' %><br />
+          <%= f.text_field :total_seats, autofocus: true %>
+        </div>
+        <div class="actions">
+          <%= f.submit "Save", class: "ui primary button" %>
+        </div>
+      <% end %>
+    </div>
+    <br>
+  </div>
+  <%= button_to "Delete", { action: "destroy", id: @trip.id },  method: :delete, data:
+    {confirm: "Are you sure you want to delete this carpool?"} %>
+</div>
