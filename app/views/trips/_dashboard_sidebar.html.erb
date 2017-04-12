@@ -1,29 +1,22 @@
 <div class="ui container">
-  <div class="four wide column">
-    <div class="header">
-      <% if current_user.rider? == true %>
-        <h3> Find A Carpool </h3>
-      <% elsif current_user.driver? == true %>
-        <%= link_to 'Add Carpool', new_trip_path %>
-      <% end %>
-  	 </div>
-  	<div class="ui divider"></div>
-      <% if current_user.rider? == true %>
-    		<h4>
-    			Carpool Trip Results:
-    		</h4>
-      <% elsif current_user.driver? == true %>
-        <h4> Your Carpools: </h4>
-        <% @trips.each do |trip| %>
-        <ul>
-          <li>
-          <%= link_to trip.address, trip_path(trip) %>
-          <strong>Coordinates: <%= trip.latitude %>, <%= trip.longitude %></strong>
-          | <strong><%= trip.total_seats %></strong> Total Seats
-          | <%= link_to "Edit", edit_trip_path(trip) %>
-          </li>
-        </ul>
-        <% end %>
-      <% end %>
+  <div class="ui segment">
+    <div class="four wide column">
+      <div class="header">
+        <h3 class="nav-title">
+        	<%= link_to new_trip_path do %>
+          Your Chatrooms
+        		<i class="add circle icon"></i>
+        	<% end %>
+        </h3>
+    	</div>
+      <br>
+      <div>
+        <%= render 'your_trips' %>
+      </div>
+    	<br>
+      <div>
+        <%= render 'all_trips' %>
+      </div>
+    </div>
   </div>
 </div>
