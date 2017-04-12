@@ -9,12 +9,12 @@ class MembershipsController < ApplicationController
 
   def create
     @trip.users.push(current_user) unless @trip.member?(current_user)
-    redirect_to trip_path(@trip)
+    redirect_to root_path
   end
 
   def destroy
   	@trip.users.destroy(current_user)
-  	redirect_to trip_path(@trip)
+  	redirect_to root_path
   end
 
   private
