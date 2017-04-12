@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show', as: 'user'
 
   resources :trips
-  resources :memberships
+  resources :memberships, only: [:destroy]
 
+  get '/users/:user_id/trips', to: 'memberships#index', as: 'user_memberships'
+  post '/trips/:trip_id/users', to: 'memberships#create', as: 'memberships_user'
 end
