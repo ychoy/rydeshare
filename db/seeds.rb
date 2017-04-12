@@ -1,5 +1,7 @@
 User.destroy_all
 Trip.destroy_all
+Membership.destroy_all
+
 users = [
 	{
 		first_name: "Faustino",
