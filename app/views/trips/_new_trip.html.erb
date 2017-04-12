@@ -1,0 +1,25 @@
+<div class="ui container">
+  <div class="header">
+    <h3 class="nav-title">
+      Create New Carpool Trip
+    </h3>
+  </div>
+  <br>
+  <div class="content">
+    <div class="ui form">
+      <%= form_for :trip, url: '/trips', method: :post do |f| %>
+        <div class="required field">
+          <%= f.label :address, 'Address' %><br />
+          <%= f.text_field :address, autofocus: true %>
+        </div>
+        <div class="required field">
+          <%= f.label :total_seats, 'Total Seats' %><br />
+          <%= f.text_field :total_seats, autofocus: true %>
+        </div>
+        <div class="actions">
+          <%= f.submit "Save", class: "ui primary button" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
