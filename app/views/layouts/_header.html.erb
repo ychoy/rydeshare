@@ -1,41 +1,46 @@
 <header>
-  <div class="ui container">
-    <div class="ui stackable grid">
-      <div class="four wide column">
-       <h1><%= link_to 'Rydeshare', root_path, class: "logo" %></h1>
-      </div>
+  <div class="ui secondary menu">
+    <!-- <div class="ui stackable grid"> -->
+      <!-- <div class="four wide column">
 
-      <nav class="twelve wide column">
-        <div class="ui secondary menu">
+      </div> -->
+
+      <!-- <nav class="sixteen wide column">
+        <div class="ui secondary menu"> -->
+        <div class="item">
+          <h1 class="nav-title"><%= link_to 'Rydeshare', root_path, class: "logo" %></h1>
+        </div>
           <% if user_signed_in? %>
-            <div class="ui right dropdown item">
-              <%= current_user.first_name %>
-              <i class="dropdown icon"></i>
-              <div class="menu">
-                <div class="item">
-                  <%= link_to 'Profile', user_path(current_user.id) %>
-                </div>
-                <div class="item">
-                  <%= link_to 'Settings', edit_user_registration_path %>
-                </div>
-                <div class="item">
-                  <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
-                </div>
+          <div class="ui right dropdown item">
+            <strong>
+            <%= current_user.first_name %>
+            </strong>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <div class="item">
+                <%= link_to 'Profile', user_path(current_user.id) %>
+              </div>
+              <div class="item">
+                <%= link_to 'Settings', edit_user_registration_path %>
+              </div>
+              <div class="item">
+                <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
               </div>
             </div>
-          <% else %>
-              <div class="menu">
-                <div class="item">
-                  <%= link_to 'Log In', new_user_session_path, class: "item" %>
-                </div>
-                <div class="item">
-                  <%= link_to 'Sign Up', new_user_registration_path, class: "item" %>
-                </div>
-              </div>
 
+          <% else %>
+            <div class="menu">
+              <div class="item">
+                <strong><%= link_to 'Log In', new_user_session_path, class: "item" %></strong>
+              </div>
+              <div class="item">
+                <strong><%= link_to 'Sign Up', new_user_registration_path, class: "item" %></strong>
+              </div>
+            </div>
           <% end %>
-        </div>
-      </nav>
+          </div>
+        <!-- </div>
+      </nav> -->
     </div>
-  </div>
+  <!-- </div> -->
 </header>
