@@ -1,24 +1,45 @@
-# README
+# Rydeshare
+Rydeshare is a responsive web application that lets users sign up to create carpools or join carpools.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Try it here: http://rydeshare.herokuapp.com/
 
-Things you may want to cover:
+Project duration: 7 days
 
-* Ruby version
+## Demo Account
+Login email: f@h.com
+Password: 123456
 
-* System dependencies
+## Technologies Used
+- Ruby on Rails
+- Google Maps API
+- Geocoder gem
+- Semantic UI
+- Gmaps.js library
+- Postgresql
+- Heroku
 
-* Configuration
+## Existing Features
+- Users can create a carpool trip with departure address
+- Users can see departure points for trips on maps
+- Users can filter results within ten miles of address
+- Users can join carpools
+- Users can leave carpools
 
-* Database creation
+## Planned Features
+- User dashboard should zoom into hometown
+- Users can search for carpools based on destination address
+- Users can schedule carpools - single time or reoccurring carpools
+- Users can track carbon emissions reduced by carpooling
 
-* Database initialization
+## Shoutouts
+Thank you Kody Lawton, Nathan Allen, Michelle Ferreirae, Tyler Hampton
 
-* How to run the test suite
+## Deployment instructions
 
-* Services (job queues, cache servers, search engines, etc.)
+```git clone https://github.com/ychoy/rydeshare```
 
-* Deployment instructions
+``` bundle```
 
-* ...
+``` rails db:create db:migrate db:seed ```
+
+``` rails s ```
