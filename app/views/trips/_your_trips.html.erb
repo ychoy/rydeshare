@@ -6,7 +6,8 @@
   <% current_user.trips.each do |trip| %>
     <br>
     <% if trip.admin?(current_user) %>
-      <strong>Address: </strong><%= link_to trip.address, trip_path(trip) %>
+      <strong> Departure: </strong><%= link_to trip.address, trip_path(trip) %> |
+      <strong> Destination: </strong><%= trip.destination_address %>
       <!--TODO: Track full? members list -->
       <div class="ui left icon button">
         <%= link_to edit_trip_path(trip) do %>
@@ -15,8 +16,8 @@
       </div>
       <br>
     <% else %>
-      <strong>Address: </strong><%= link_to trip.address, trip_path(trip) %>
-      <br>
+      <strong>Departure: </strong><%= link_to trip.address, trip_path(trip) %>
+      | <strong> Destination: </strong><%= trip.destination_address %> |
       <strong>Driver: </strong><%= User.where(id:trip.user_id).first.first_name %>
       <%= User.where(id:trip.user_id).first.last_name %>
       <div class="ui left icon button">
@@ -24,7 +25,7 @@
           <i class="remove user icon"></i>
         <% end %>
       </div>
-      
+
       <hr>
     <% end %>
   <% end %>
