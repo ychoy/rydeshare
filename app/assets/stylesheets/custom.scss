@@ -1,6 +1,6 @@
 @import "semantic-ui";
 @import "font-awesome";
-@import url('https://fonts.googleapis.com/css?family=Oswald:500%7CRoboto');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:600|Raleway');
 @import url('https://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps:400');
 
 /*** Variables ***/
@@ -12,8 +12,8 @@ $bone: #ffffff;
 $coal: #2f3131;
 /* fonts */
 $logo-font: 'Oleo Script Swash Caps', cursive;
-$heading-font: 'Oswald', sans-serif;
-$body-font: 'Roboto', sans-serif;
+$heading-font: 'Raleway', sans-serif;
+$body-font: 'Open Sans', sans-serif;
 
 
 body {
