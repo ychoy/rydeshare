@@ -31,7 +31,7 @@ class TripsController < ApplicationController
       redirect_to root_path
     else
       flash[:error] = @trip.errors.full_messages.join(", ")
-      render 'new'
+      redirect_to new_trip_path
     end
  end
 
