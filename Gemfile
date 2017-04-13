@@ -42,7 +42,7 @@ gem 'devise'
 gem 'devise-encryptable'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'figaro', '~> 1.1.1'
+#gem 'figaro', '~> 1.1.1'
 gem 'geocoder', '~> 1.4.3'
 
 group :development, :test do
